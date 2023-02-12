@@ -145,20 +145,18 @@ void InteractiveGameBase::rebuild_main_menu() {
 		new GameMainMenuSaveGame(*this, menu_windows_.savegame, GameMainMenuSaveGame::Type::kSave);
 	};
 	/** TRANSLATORS: An entry in the game's main menu */
-mainmenu_.add(_("Sound Options"), MainMenuEntry::kOptions,
+	mainmenu_.add(_("Sound Options"), MainMenuEntry::kOptions,
 	              g_image_cache->get("images/wui/menus/save_game.svg"), false, "",
 	              shortcut_string_for(KeyboardShortcut::kInGameSave, false));
 
 	if (!is_multiplayer() && !game().is_replay()) {
 		menu_windows_.loadgame.open_window = [this] {
-
 			new GameMainMenuSaveGame(*this, menu_windows_.loadgame, GameMainMenuSaveGame::Type::kLoad);
 		};
 		/** TRANSLATORS: An entry in the game's main menu */
 		mainmenu_.add(_("Load Game"), MainMenuEntry::kLoadMap,
 		              g_image_cache->get("images/wui/menus/load_game.svg"), false, "",
 		              shortcut_string_for(KeyboardShortcut::kInGameLoad, false));
-
 	}
 
 	if (!game().list_of_scenarios().empty()) {
@@ -166,7 +164,6 @@ mainmenu_.add(_("Sound Options"), MainMenuEntry::kOptions,
 		mainmenu_.add(_("Restart Scenario"), MainMenuEntry::kRestartScenario,
 		              g_image_cache->get("images/wui/menus/restart_scenario.png"));
 	}
-
 
 	mainmenu_.add(
 	   /** TRANSLATORS: An entry in the game's main menu */
