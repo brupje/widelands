@@ -145,7 +145,7 @@ GeneralStatisticsMenu::GeneralStatisticsMenu(InteractiveGameBase& parent,
 	hbox2->add(btn, UI::Box::Resizing::kFillSpace);
 
 	radiogroup_.add_button(hbox2, UI::PanelStyle::kWui, zero,
-	                       g_image_cache->get("images/wui/stats/genstats_nrbuildings.png"),
+	                       g_image_cache->get("images/wui/menus/toggle_buildings.svg"),
 	                       _("Buildings"), &btn);
 	hbox2->add(btn, UI::Box::Resizing::kFillSpace);
 

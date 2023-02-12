@@ -414,7 +414,7 @@ void BuildingWindow::create_capsbuttons(UI::Box* capsbuttons, Widelands::Buildin
 
 		UI::Button* helpbtn =
 		   new UI::Button(capsbuttons, "help", 0, 0, 34, 34, UI::ButtonStyle::kWuiMenu,
-		                  g_image_cache->get("images/ui_basic/menu_help.png"), _("Help"));
+		                  g_image_cache->get("images/ui_basic/menu_help.svg"), _("Help"));
 
 		UI::UniqueWindow::Registry& registry =
 		   ibase()->unique_windows().get_registry(building_descr_for_help_->name() + "_help");

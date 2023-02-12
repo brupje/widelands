@@ -51,7 +51,9 @@ const std::map<AddOnCategory, AddOnCategoryInfo> kAddOnCategories = {
    {AddOnCategory::kScript,
     AddOnCategoryInfo{"script", []() { return _("Script"); }, "images/logos/WL-Editor-32.png"}},
    {AddOnCategory::kMaps, AddOnCategoryInfo{"maps", []() { return _("Map Set"); },
-                                            "images/wui/menus/toggle_minimap.png"}},
+
+                                            "images/wui/menus/toggle_minimap.svg"}},
+
    {AddOnCategory::kCampaign, AddOnCategoryInfo{"campaign", []() { return _("Campaign"); },
                                                 "images/wui/messages/messages_warfare.png"}},
    {AddOnCategory::kWinCondition,
@@ -59,9 +61,10 @@ const std::map<AddOnCategory, AddOnCategoryInfo> kAddOnCategories = {
        "win_condition", []() { return _("Win Condition"); }, "images/wui/menus/objectives.png"}},
    {AddOnCategory::kStartingCondition,
     AddOnCategoryInfo{"starting_condition", []() { return _("Starting Condition"); },
-                      "tribes/buildings/warehouses/atlanteans/headquarters/menu.png"}},
+
+                      "tribes/buildings/warehouses/atlanteans/headquarters/menu.svg"}},
    {AddOnCategory::kTheme,
-    AddOnCategoryInfo{"theme", []() { return _("Theme"); }, "images/wui/menus/main_menu.png"}}};
+    AddOnCategoryInfo{"theme", []() { return _("Theme"); }, "images/wui/menus/main_menu.svg"}}};
 
 std::vector<AddOnState> g_addons;
 

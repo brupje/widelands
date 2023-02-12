@@ -2084,7 +2084,7 @@ void Worker::return_update(Game& game, State& state) {
 		get_owner()->add_message(
 		   game,
 		   std::unique_ptr<Message>(new Message(Message::Type::kGameLogic, game.get_gametime(),
-		                                        _("Worker"), "images/ui_basic/menu_help.png",
+		                                        _("Worker"), "images/ui_basic/menu_help.svg",
 		                                        _("Worker got lost!"), message, get_position())),
 		   serial_ != 0u);
 		set_location(nullptr);

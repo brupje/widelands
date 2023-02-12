@@ -235,7 +235,7 @@ void EditorInteractive::add_main_menu() {
 
 	/** TRANSLATORS: An entry in the editor's main menu */
 	mainmenu_.add(_("Exit Editor"), MainMenuEntry::kExitEditor,
-	              g_image_cache->get("images/wui/menus/exit.png"));
+	              g_image_cache->get("images/wui/menus/exit.svg"));
 	mainmenu_.selected.connect([this] { main_menu_selected(mainmenu_.get_selected()); });
 	toolbar()->add(&mainmenu_);
 }
@@ -419,7 +419,7 @@ void EditorInteractive::tool_menu_selected(ToolMenuEntry entry) {
 }
 
 void EditorInteractive::add_showhide_menu() {
-	showhidemenu_.set_image(g_image_cache->get("images/wui/menus/showhide.png"));
+	showhidemenu_.set_image(g_image_cache->get("images/wui/menus/showhide.svg"));
 	toolbar()->add(&showhidemenu_);
 
 	rebuild_showhide_menu();

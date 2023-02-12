@@ -449,7 +449,7 @@ MainMenuMapOptions::MainMenuMapOptions(EditorInteractive& parent, Registry& regi
 	tab_box_.add(&tabs_, UI::Box::Resizing::kFullSize);
 	tab_box_.add_space(4);
 	tab_box_.add(&buttons_box_, UI::Box::Resizing::kFullSize);
-	tabs_.add("main_map_options", g_image_cache->get("images/wui/menus/toggle_minimap.png"),
+	tabs_.add("main_map_options", g_image_cache->get("images/wui/menus/toggle_minimap.svg"),
 	          &main_box_, _("Main Options"));
 	tabs_.add("map_tags", g_image_cache->get("images/ui_basic/checkbox_checked.png"), &tags_box_,
 	          _("Tags"));

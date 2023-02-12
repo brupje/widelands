@@ -61,7 +61,7 @@ LaunchMPG::LaunchMPG(MenuCapsule& fsmm,
                   standard_height_,
                   standard_height_,
                   UI::ButtonStyle::kFsMenuSecondary,
-                  g_image_cache->get("images/ui_basic/menu_help.png"),
+                  g_image_cache->get("images/ui_basic/menu_help.svg"),
                   _("Show the help window")),
      help_(nullptr),
 

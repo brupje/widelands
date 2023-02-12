@@ -266,7 +266,7 @@ UI::Box* InteractiveBase::toolbar() {
 }
 
 void InteractiveBase::add_mapview_menu(MiniMapType minimap_type) {
-	mapviewmenu_.set_image(g_image_cache->get("images/wui/menus/toggle_minimap.png"));
+	mapviewmenu_.set_image(g_image_cache->get("images/wui/menus/toggle_minimap.svg"));
 	toolbar()->add(&mapviewmenu_);
 
 	minimap_registry_.open_window = [this] { toggle_minimap(); };
@@ -286,22 +286,22 @@ void InteractiveBase::rebuild_mapview_menu() {
 	/** TRANSLATORS: An entry in the game's map view menu */
 	mapviewmenu_.add(minimap_registry_.window != nullptr ? _("Hide Minimap") : _("Show Minimap"),
 	                 MapviewMenuEntry::kMinimap,
-	                 g_image_cache->get("images/wui/menus/toggle_minimap.png"), false, "",
+	                 g_image_cache->get("images/wui/menus/toggle_minimap.svg"), false, "",
 	                 shortcut_string_for(KeyboardShortcut::kCommonMinimap, false));
 
 	/** TRANSLATORS: An entry in the game's map view menu */
 	mapviewmenu_.add(_("Zoom +"), MapviewMenuEntry::kIncreaseZoom,
-	                 g_image_cache->get("images/wui/menus/zoom_increase.png"), false, "",
+	                 g_image_cache->get("images/wui/menus/zoom_increase.svg"), false, "",
 	                 shortcut_string_for(KeyboardShortcut::kCommonZoomIn, false));
 
 	/** TRANSLATORS: An entry in the game's map view menu */
 	mapviewmenu_.add(_("Reset zoom"), MapviewMenuEntry::kResetZoom,
-	                 g_image_cache->get("images/wui/menus/zoom_reset.png"), false, "",
+	                 g_image_cache->get("images/wui/menus/zoom_reset.svg"), false, "",
 	                 shortcut_string_for(KeyboardShortcut::kCommonZoomReset, false));
 
 	/** TRANSLATORS: An entry in the game's map view menu */
 	mapviewmenu_.add(_("Zoom –"), MapviewMenuEntry::kDecreaseZoom,
-	                 g_image_cache->get("images/wui/menus/zoom_decrease.png"), false, "",
+	                 g_image_cache->get("images/wui/menus/zoom_decrease.svg"), false, "",
 	                 shortcut_string_for(KeyboardShortcut::kCommonZoomOut, false));
 
 	mapviewmenu_.select(last_selection);
@@ -447,7 +447,7 @@ UI::Button* InteractiveBase::add_toolbar_button(const std::string& image_basenam
 	UI::Button* button =
 	   new UI::Button(&toolbar_.box, name, 0, 0, MainToolbar::kButtonSize, MainToolbar::kButtonSize,
 	                  UI::ButtonStyle::kWuiPrimary,
-	                  g_image_cache->get("images/" + image_basename + ".png"), tooltip_text);
+	                  g_image_cache->get("images/" + image_basename + ".svg"), tooltip_text);
 	toolbar_.box.add(button);
 	if (window != nullptr) {
 		window->opened.connect([button] { button->set_perm_pressed(true); });

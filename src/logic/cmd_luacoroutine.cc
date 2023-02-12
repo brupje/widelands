@@ -60,7 +60,7 @@ void CmdLuaCoroutine::execute(Game& game) {
 			if (recipient != nullptr) {
 				std::unique_ptr<Message> msg(new Widelands::Message(
 				   Message::Type::kGameLogic, game.get_gametime(), "Coroutine",
-				   "images/ui_basic/menu_help.png", "Lua Coroutine Failed", error_message));
+				   "images/ui_basic/menu_help.svg", "Lua Coroutine Failed", error_message));
 
 				recipient->add_message(game, std::move(msg), true);
 			}

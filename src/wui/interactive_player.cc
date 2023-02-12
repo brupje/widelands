@@ -270,7 +270,7 @@ InteractivePlayer::InteractivePlayer(Widelands::Game& g,
 }
 
 void InteractivePlayer::add_statistics_menu() {
-	statisticsmenu_.set_image(g_image_cache->get("images/wui/menus/statistics.png"));
+	statisticsmenu_.set_image(g_image_cache->get("images/wui/menus/statistics.svg"));
 	toolbar()->add(&statisticsmenu_);
 
 	menu_windows_.stats_seafaring.open_window = [this] {
@@ -313,33 +313,33 @@ void InteractivePlayer::rebuild_statistics_menu() {
 	if (egbase().map().allows_seafaring()) {
 		/** TRANSLATORS: An entry in the game's statistics menu */
 		statisticsmenu_.add(_("Seafaring"), StatisticsMenuEntry::kSeafaring,
-		                    g_image_cache->get("images/wui/menus/statistics_seafaring.png"), false,
+		                    g_image_cache->get("images/wui/menus/statistics_seafaring.svg"), false,
 		                    "", shortcut_string_for(KeyboardShortcut::kInGameStatsSeafaring, false));
 	}
 
 	/** TRANSLATORS: An entry in the game's statistics menu */
 	statisticsmenu_.add(_("Soldiers"), StatisticsMenuEntry::kSoldiers,
-	                    g_image_cache->get("images/wui/menus/toggle_soldier_levels.png"), false, "",
+	                    g_image_cache->get("images/wui/menus/statistics_soldiers.svg"), false, "",
 	                    shortcut_string_for(KeyboardShortcut::kInGameStatsSoldiers, false));
 
 	/** TRANSLATORS: An entry in the game's statistics menu */
 	statisticsmenu_.add(_("Stock"), StatisticsMenuEntry::kStock,
-	                    g_image_cache->get("images/wui/menus/statistics_stock.png"), false, "",
+	                    g_image_cache->get("images/wui/menus/statistics_stock.svg"), false, "",
 	                    shortcut_string_for(KeyboardShortcut::kInGameStatsStock, false));
 
 	/** TRANSLATORS: An entry in the game's statistics menu */
 	statisticsmenu_.add(_("Buildings"), StatisticsMenuEntry::kBuildings,
-	                    g_image_cache->get("images/wui/menus/statistics_buildings.png"), false, "",
+	                    g_image_cache->get("images/wui/menus/statistics_buildings.svg"), false, "",
 	                    shortcut_string_for(KeyboardShortcut::kInGameStatsBuildings, false));
 
 	/** TRANSLATORS: An entry in the game's statistics menu */
 	statisticsmenu_.add(_("Wares"), StatisticsMenuEntry::kWare,
-	                    g_image_cache->get("images/wui/menus/statistics_wares.png"), false, "",
+	                    g_image_cache->get("images/wui/menus/statistics_wares.svg"), false, "",
 	                    shortcut_string_for(KeyboardShortcut::kInGameStatsWares, false));
 
 	/** TRANSLATORS: An entry in the game's statistics menu */
 	statisticsmenu_.add(_("General"), StatisticsMenuEntry::kGeneral,
-	                    g_image_cache->get("images/wui/menus/statistics_general.png"), false, "",
+	                    g_image_cache->get("images/wui/menus/statistics_general.svg"), false, "",
 	                    shortcut_string_for(KeyboardShortcut::kInGameStatsGeneral, false));
 
 	statisticsmenu_.select(last_selection);
@@ -385,7 +385,7 @@ void InteractivePlayer::rebuild_showhide_menu() {
            * are highlighted */
           _("Show Workarea Overlaps"),
 	   ShowHideEntry::kWorkareaOverlap,
-	   g_image_cache->get("images/wui/menus/show_workarea_overlap.png"), false,
+	   g_image_cache->get("images/wui/menus/show_workarea_overlap.svg"), false,
 	   _("Toggle whether overlapping workareas are indicated when placing a constructionsite"),
 	   shortcut_string_for(KeyboardShortcut::kInGameShowhideWorkareas, false));
 
@@ -462,11 +462,11 @@ void InteractivePlayer::think() {
 		}
 	}
 	{
-		char const* msg_icon = "images/wui/menus/message_old.png";
+		char const* msg_icon = "images/wui/menus/message_old.svg";
 		std::string msg_tooltip = _("Messages");
 		if (uint32_t const nr_new_messages =
 		       player().messages().nr_messages(Widelands::Message::Status::kNew)) {
-			msg_icon = "images/wui/menus/message_new.png";
+			msg_icon = "images/wui/menus/message_new.svg";
 			msg_tooltip =
 			   format(ngettext("%u new message", "%u new messages", nr_new_messages), nr_new_messages);
 		}

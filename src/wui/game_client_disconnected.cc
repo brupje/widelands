@@ -97,7 +97,7 @@ GameClientDisconnected::GameClientDisconnected(InteractiveGameBase* gb,
                 width,
                 35,
                 UI::ButtonStyle::kWuiMenu,
-                g_image_cache->get("images/wui/menus/exit.png"),
+                g_image_cache->get("images/wui/menus/exit.svg"),
                 /** TRANSLATORS: Button tooltip */
                 _("Exit Game")) {
 

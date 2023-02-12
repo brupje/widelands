@@ -95,7 +95,7 @@ GameMessageMenu::GameMessageMenu(InteractivePlayer& plr, UI::UniqueWindow::Regis
 
 	scenariobtn_ = new UI::Button(this, "filter_scenario_messages", 5 * kPadding + 4 * kButtonSize,
 	                              kPadding, kButtonSize, kButtonSize, UI::ButtonStyle::kWuiSecondary,
-	                              g_image_cache->get("images/wui/menus/objectives.png"));
+	                              g_image_cache->get("images/wui/menus/objectives.svg"));
 
 	message_filter_ = Widelands::Message::Type::kAllMessages;
 	set_filter_messages_tooltips();
@@ -237,7 +237,7 @@ bool GameMessageMenu::should_be_hidden(const Widelands::Message& message) {
 	        message.message_type_category() != message_filter_);
 }
 
-static char const* const status_picture_filename[] = {"images/wui/messages/message_new.png",
+static char const* const status_picture_filename[] = {"images/wui/messages/message_new.svg",
                                                       "images/wui/messages/message_read.png",
                                                       "images/wui/messages/message_archived.png"};
 
@@ -577,9 +577,9 @@ std::string GameMessageMenu::display_message_type_icon(const Widelands::Message&
 	case Widelands::Message::Type::kWarfare:
 		return "images/wui/messages/messages_warfare.png";
 	case Widelands::Message::Type::kScenario:
-		return "images/wui/menus/objectives.png";
+		return "images/wui/menus/objectives.svg";
 	case Widelands::Message::Type::kGameLogic:
-		return "images/ui_basic/menu_help.png";
+		return "images/ui_basic/menu_help.svg";
 	case Widelands::Message::Type::kNoMessages:
 	case Widelands::Message::Type::kAllMessages:
 	case Widelands::Message::Type::kEconomySiteOccupied:
@@ -599,7 +599,7 @@ void GameMessageMenu::toggle_mode() {
 		mode = Mode::kArchive;
 		set_title(_("Messages: Archive"));
 		archivebtn_->set_pic(g_image_cache->get("images/wui/messages/message_restore.png"));
-		togglemodebtn_->set_pic(g_image_cache->get("images/wui/messages/message_new.png"));
+		togglemodebtn_->set_pic(g_image_cache->get("images/wui/messages/message_new.svg"));
 		togglemodebtn_->set_tooltip(_("Show Inbox"));
 		break;
 	case Mode::kArchive:
