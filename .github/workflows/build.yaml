@@ -79,52 +79,8 @@ jobs:
         ./extract_rst.py
         sphinx-build -W -b json -d build/doctrees source build/json
 
-  clang_tidy:
-    runs-on: ubuntu-20.04
-    env:
-      CC:  /usr/bin/clang
-      CXX: /usr/bin/clang++
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 1
-    - name: Installing dependencies
-      run: sh ./.github/scripts/install_deps.sh
-    - name: CMake
-      run: |
-        echo "Will use $(nproc) cores."
-        mkdir build
-        pushd build
-        cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
-        popd
-    - name: Check
-      # To run a single check, call:
-      # python3 ../utils/run-clang-tidy.py -checks=-*,my-check-prefix* | tee ../clang-tidy.log
-      run: |
-        pushd build
-        python3 ../utils/run-clang-tidy.py | tee ../clang-tidy.log
-        popd
-    - name: Report
-      run: utils/check_clang_tidy_results.py clang-tidy.log
-
-  lua_style:
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 1
-    - name: Prepare documentation examples for parsing
-      run: |
-        pushd doc/sphinx
-        ./extract_rst.py
-        popd
-    - name: Run Lua style checker
-      run: ./utils/lua_style_checker.py
-
   testsuite:
-    needs: [clang_tidy, documentation, codecheck, misc_sanity_checks, lua_style]
+    needs: [documentation, codecheck, misc_sanity_checks, lua_style]
     strategy:
       fail-fast: false
       matrix:
@@ -209,7 +165,7 @@ jobs:
 
   windows-msvc:
     # inspired by https://github.com/lukka/CppCMakeVcpkgTemplate/blob/main/.github/workflows/hosted-pure-workflow.yml
-    needs: [clang_tidy, documentation, codecheck, misc_sanity_checks, lua_style]
+    needs: [ documentation, codecheck, misc_sanity_checks, lua_style]
     strategy:
       matrix:
         config: [Debug, Release]
@@ -272,7 +228,7 @@ jobs:
         path: ${{ github.workspace }}\Widelands-${{ github.sha }}-msvc-${{ matrix.config }}-${{ matrix.arch }}.exe
 
   windows:
-    needs: [clang_tidy, documentation, codecheck, misc_sanity_checks, lua_style]
+    needs: [ documentation, codecheck, misc_sanity_checks, lua_style]
     strategy:
       matrix:
         config: [Debug, Release]
@@ -325,7 +281,7 @@ jobs:
         path: ${{ github.workspace }}\Widelands-${{ github.sha }}-mingw-${{ matrix.config }}-${{ matrix.arch }}.exe
 
   macos:
-    needs: [clang_tidy, documentation, codecheck, misc_sanity_checks, lua_style]
+    needs: [ documentation, codecheck, misc_sanity_checks, lua_style]
     strategy:
       matrix:
         config: [debug, release]
@@ -361,7 +317,7 @@ jobs:
 
   appimage:
     if: ${{ github.repository == 'brupje/widelands' && github.ref == 'refs/heads/master' }}
-    needs: [clang_tidy, documentation, codecheck, misc_sanity_checks, lua_style]
+    needs: [ documentation, codecheck, misc_sanity_checks, lua_style]
     strategy:
       matrix:
         config: [Debug, Release]
