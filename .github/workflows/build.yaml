@@ -80,7 +80,7 @@ jobs:
         sphinx-build -W -b json -d build/doctrees source build/json
 
   testsuite:
-    needs: [documentation, codecheck, misc_sanity_checks, lua_style]
+    needs: [documentation, codecheck, misc_sanity_checks]
     strategy:
       fail-fast: false
       matrix:
@@ -165,7 +165,7 @@ jobs:
 
   windows-msvc:
     # inspired by https://github.com/lukka/CppCMakeVcpkgTemplate/blob/main/.github/workflows/hosted-pure-workflow.yml
-    needs: [ documentation, codecheck, misc_sanity_checks, lua_style]
+    needs: [ documentation, codecheck, misc_sanity_checks]
     strategy:
       matrix:
         config: [Debug, Release]
@@ -228,7 +228,7 @@ jobs:
         path: ${{ github.workspace }}\Widelands-${{ github.sha }}-msvc-${{ matrix.config }}-${{ matrix.arch }}.exe
 
   windows:
-    needs: [ documentation, codecheck, misc_sanity_checks, lua_style]
+    needs: [ documentation, codecheck, misc_sanity_checks]
     strategy:
       matrix:
         config: [Debug, Release]
@@ -281,7 +281,7 @@ jobs:
         path: ${{ github.workspace }}\Widelands-${{ github.sha }}-mingw-${{ matrix.config }}-${{ matrix.arch }}.exe
 
   macos:
-    needs: [ documentation, codecheck, misc_sanity_checks, lua_style]
+    needs: [ documentation, codecheck, misc_sanity_checks]
     strategy:
       matrix:
         config: [debug, release]
@@ -317,7 +317,7 @@ jobs:
 
   appimage:
     if: ${{ github.repository == 'brupje/widelands' && github.ref == 'refs/heads/master' }}
-    needs: [ documentation, codecheck, misc_sanity_checks, lua_style]
+    needs: [ documentation, codecheck, misc_sanity_checks]
     strategy:
       matrix:
         config: [Debug, Release]
