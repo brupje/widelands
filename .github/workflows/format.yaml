@@ -54,7 +54,7 @@ jobs:
         EOF
         chmod 600 $HOME/.netrc
     - name: Installing python
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v4
       with:
         python-version: 3.x
     - name: Installing formatting tools
@@ -95,7 +95,7 @@ jobs:
             forkname=${{ github.repository }}
             # grep returns 1 if the branch is not found
             set +e
-            output=$(curl -i "https://api.github.com/repos/widelands/widelands/pulls?state=open&head=${forkname%%/*}:$branch" | grep "$branch")
+            output=$(curl -i "https://api.github.com/repos/brupje/widelands/pulls?state=open&head=${forkname%%/*}:$branch" | grep "$branch")
             set -e
             if [ -z "$output" ]
             then
