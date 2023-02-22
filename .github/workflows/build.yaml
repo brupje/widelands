@@ -319,13 +319,13 @@ jobs:
         strip.exe -sv .\build\src\widelands.exe
         ISCC.exe /o$env:GITHUB_WORKSPACE /fWidelands-${{ github.sha }}-mingw-${{ matrix.config }}-${{ matrix.arch }} $env:GITHUB_WORKSPACE\utils\win32\innosetup\Widelands.iss
     - name: Uploading installer
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: Widelands ${{ matrix.config }} ${{ matrix.arch }} Installer (MinGW)
         path: ${{ github.workspace }}\Widelands-${{ github.sha }}-mingw-${{ matrix.config }}-${{ matrix.arch }}.exe
 
   macos:
-    # needs: [clang_tidy, documentation, codecheck, misc_sanity_checks, lua_style]
+    needs: [clang_tidy, documentation, codecheck, misc_sanity_checks, lua_style]
     strategy:
       matrix:
         config: [debug, release]
@@ -360,7 +360,7 @@ jobs:
         path: ${{ github.workspace }}/Widelands-${{ github.sha }}-${{ matrix.config }}-${{ matrix.compiler }}.dmg
 
   appimage:
-    if: ${{ github.repository == 'widelands/widelands' && github.ref == 'refs/heads/master' }}
+    if: ${{ github.repository == 'brupje/widelands' && github.ref == 'refs/heads/master' }}
     needs: [clang_tidy, documentation, codecheck, misc_sanity_checks, lua_style]
     strategy:
       matrix:
